@@ -8,7 +8,6 @@ import { Item, RawItem } from '../models/item.model';
 })
 export class ApiService {
   private url: string = 'http://localhost/takehome-api/items';
-  private headers = new HttpHeaders().set('AUTH_TOKEN', 'token123');
 
   private itemsSubject = new BehaviorSubject<Item[]>([]);
   items$ = this.itemsSubject.asObservable();
@@ -17,7 +16,7 @@ export class ApiService {
 
   getItems() {
     this.http
-      .get<Record<string, RawItem>>(this.url, { headers: this.headers, withCredentials: true })
+      .get<Record<string, RawItem>>(this.url)
       .pipe(
         map((d) =>
           Object.entries(d).map(([key, item]) => ({
@@ -38,17 +37,13 @@ export class ApiService {
   }
 
   modifyItemTitle(item: Item) {
-    return this.http
-      .put<
-        Record<string, RawItem>
-      >(`${this.url}/${item.id}`, item, { headers: this.headers, withCredentials: true })
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          this.getItems();
-        },
-        error: (err) => console.error('Error:', err),
-      });
+    return this.http.put<Record<string, RawItem>>(`${this.url}/${item.id}`, item).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.getItems();
+      },
+      error: (err) => console.error('Error:', err),
+    });
   }
 
   getItemById(itemId: number): Item | null {
