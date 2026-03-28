@@ -36,4 +36,8 @@ export class ApiService {
         },
       });
   }
+
+  getItemById(itemId: number): Item | null {
+    return this.itemsSubject.value.find((i) => i.id === itemId) ?? null;
+  }
 }
