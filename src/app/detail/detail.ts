@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Data } from '@angular/router';
+import { ApiService } from '../services/api-service';
 
 @Component({
   selector: 'app-detail',
@@ -6,4 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './detail.html',
   styleUrl: './detail.css',
 })
-export class Detail {}
+export class Detail implements OnChanges {
+  @Input() selectedItemId: number | null = null;
+
+  protected item: Data | null = null;
+
+  constructor(private readonly apiService: ApiService) {}
+
+  ngOnChanges(): void {
+    this.item = this.apiService.getItemById(this.selectedItemId!);
+  }
+}

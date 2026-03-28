@@ -1,1 +1,8 @@
-<p>detail works!</p>
+@if (!item) {
+  <p>Selectionnez un titre</p>
+} @else {
+  <input type="text" placeholder="{{ item['title'] }}" name="title" />
+  <button type="submit">Enregistrer</button>
+  <p>{{ item['description'] }}</p>
+  <p>{{ item['date'] }}</p>
+}
