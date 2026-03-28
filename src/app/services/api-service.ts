@@ -17,7 +17,7 @@ export class ApiService {
 
   getItems() {
     this.http
-      .get<Record<string, RawItem>>(this.url, { headers: this.headers })
+      .get<Record<string, RawItem>>(this.url, { headers: this.headers, withCredentials: true })
       .pipe(
         map((d) =>
           Object.entries(d).map(([key, item]) => ({
@@ -39,7 +39,9 @@ export class ApiService {
 
   modifyItemTitle(item: Item) {
     return this.http
-      .put<Record<string, RawItem>>(`${this.url}/${item.id}`, item, { headers: this.headers })
+      .put<
+        Record<string, RawItem>
+      >(`${this.url}/${item.id}`, item, { headers: this.headers, withCredentials: true })
       .subscribe({
         next: (res) => {
           console.log(res);
