@@ -7,7 +7,7 @@ import { Item, RawItem } from '../../models/item.model';
   providedIn: 'root',
 })
 export class ApiService {
-  private url: string = 'http://localhost/takehome-api/items';
+  private url: string = 'http://localhost/items';
 
   private itemsSubject = new BehaviorSubject<Item[]>([]);
   items$ = this.itemsSubject.asObservable();
