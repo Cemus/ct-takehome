@@ -20,7 +20,7 @@ export class List implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.apiService.getItems());
+    this.apiService.getItems();
   }
 
   selectItem(itemId: number) {
