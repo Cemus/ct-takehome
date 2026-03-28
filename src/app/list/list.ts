@@ -11,6 +11,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class List implements OnInit {
   items$!: Observable<any>;
+
   constructor(private readonly apiService: ApiService) {
     this.items$ = this.apiService.items$;
   }
