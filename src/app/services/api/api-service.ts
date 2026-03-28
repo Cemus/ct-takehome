@@ -30,9 +30,6 @@ export class ApiService {
           this.itemsSubject.next(res);
           console.log(res);
         },
-        error: (err) => {
-          console.error('Error:', err);
-        },
       });
   }
 
@@ -42,7 +39,6 @@ export class ApiService {
         console.log(res);
         this.getItems();
       },
-      error: (err) => console.error('Error:', err),
     });
   }
 
