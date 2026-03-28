@@ -1,8 +1,8 @@
 @if (!item) {
   <p>Selectionnez un titre</p>
 } @else {
-  <input type="text" placeholder="{{ item['title'] }}" name="title" />
-  <button type="submit">Enregistrer</button>
+  <input type="text" placeholder="{{ item['title'] }}" [formControl]="title" name="title" />
+  <button type="submit" (click)="onSubmit()">Enregistrer</button>
   <p>{{ item['description'] }}</p>
   <p>{{ item['date'] }}</p>
 }

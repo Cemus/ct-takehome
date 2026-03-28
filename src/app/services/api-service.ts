@@ -37,6 +37,18 @@ export class ApiService {
       });
   }
 
+  modifyItemTitle(item: Item) {
+    return this.http
+      .put<Record<string, RawItem>>(`${this.url}/${item.id}`, item, { headers: this.headers })
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.getItems();
+        },
+        error: (err) => console.error('Error:', err),
+      });
+  }
+
   getItemById(itemId: number): Item | null {
     return this.itemsSubject.value.find((i) => i.id === itemId) ?? null;
   }
