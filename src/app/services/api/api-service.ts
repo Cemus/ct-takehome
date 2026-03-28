@@ -28,7 +28,6 @@ export class ApiService {
       .subscribe({
         next: (res) => {
           this.itemsSubject.next(res);
-          console.log(res);
         },
       });
   }
@@ -36,7 +35,6 @@ export class ApiService {
   modifyItemTitle(item: Item) {
     return this.http.put<Record<string, RawItem>>(`${this.url}/${item.id}`, item).subscribe({
       next: (res) => {
-        console.log(res);
         this.getItems();
       },
     });

@@ -22,8 +22,6 @@ export class Detail implements OnChanges {
   }
 
   onSubmit() {
-    console.log('item id', this.selectedItemId);
-
     if (!this.title.value) return;
     if (this.selectedItemId === null) return;
 

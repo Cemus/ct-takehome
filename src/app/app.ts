@@ -16,6 +16,5 @@ export class App {
 
   handleSelectTitle(selectedItemId: number | null) {
     this.selectedItemId = selectedItemId;
-    console.log(this.selectedItemId);
   }
 }
