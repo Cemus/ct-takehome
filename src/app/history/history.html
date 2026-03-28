@@ -1,1 +1,16 @@
-<p>history works!</p>
+@if (item$ | async; as item) {
+  <table>
+    <thead>
+      <tr>
+        <th>Historique des titres</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (historyTitle of item['titleHistory']; let i = $index; track i) {
+        <tr>
+          <td>{{ historyTitle }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
