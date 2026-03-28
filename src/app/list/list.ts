@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ApiService } from '../services/api-service';
+import { ApiService } from '../services/api/api-service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 

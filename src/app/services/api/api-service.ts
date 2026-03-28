@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { Item, RawItem } from '../models/item.model';
+import { Item, RawItem } from '../../models/item.model';
 
 @Injectable({
   providedIn: 'root',

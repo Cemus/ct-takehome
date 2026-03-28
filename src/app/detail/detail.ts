@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ApiService } from '../services/api-service';
+import { ApiService } from '../services/api/api-service';
 import { Item } from '../models/item.model';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 

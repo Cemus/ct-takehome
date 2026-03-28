@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { ApiService } from '../services/api-service';
+import { ApiService } from '../services/api/api-service';
 import { Item } from '../models/item.model';
 import { AsyncPipe } from '@angular/common';
 
