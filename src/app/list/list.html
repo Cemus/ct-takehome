@@ -1,1 +1,11 @@
-<p>list works!</p>
+@if (items$ | async; as items) {
+  <ul>
+    @for (item of items; let i = $index; track $index) {
+      <li>
+        <button>
+          <h2>{{ item.title }}</h2>
+        </button>
+      </li>
+    }
+  </ul>
+}
