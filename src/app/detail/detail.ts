@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Data } from '@angular/router';
 import { ApiService } from '../services/api-service';
 
 @Component({
