@@ -2,7 +2,7 @@
   <ul>
     @for (item of items; let i = $index; track $index) {
       <li>
-        <button>
+        <button (click)="selectItem(item.id)">
           <h2>{{ item.title }}</h2>
         </button>
       </li>

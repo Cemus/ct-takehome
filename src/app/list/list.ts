@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../services/api-service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -10,6 +10,9 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './list.css',
 })
 export class List implements OnInit {
+  @Input() selectedItemId: number | null = null;
+  @Output() selectTitle: EventEmitter<number | null> = new EventEmitter<number | null>();
+
   items$!: Observable<any>;
 
   constructor(private readonly apiService: ApiService) {
@@ -18,5 +21,14 @@ export class List implements OnInit {
 
   ngOnInit(): void {
     console.log(this.apiService.getItems());
+  }
+
+  selectItem(itemId: number) {
+    if (this.selectedItemId === itemId) {
+      this.selectTitle.emit(null);
+      return;
+    }
+
+    this.selectTitle.emit(itemId);
   }
 }

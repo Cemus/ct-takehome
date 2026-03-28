@@ -12,4 +12,10 @@ import { List } from './list/list';
 })
 export class App {
   protected readonly title = signal('ct-takehome');
+  protected selectedItemId: number | null = null;
+
+  handleSelectTitle(selectedItemId: number | null) {
+    this.selectedItemId = selectedItemId;
+    console.log(this.selectedItemId);
+  }
 }

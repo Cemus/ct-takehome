@@ -1,5 +1,9 @@
 <article>
-  <app-list class="list" />
+  <app-list
+    [selectedItemId]="selectedItemId"
+    (selectTitle)="handleSelectTitle($event)"
+    class="list"
+  />
   <aside>
     <app-detail />
     <app-history />
